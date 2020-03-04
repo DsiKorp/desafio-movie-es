@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<htmllang="en" dir="ltr">
+
+    <head>
+        <metacharset="utf-8">
+            <title>Desafio1</title>
+            <linkhref="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
+                <linkhref="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+                    <style>
+                    @font-face {
+                            font-family: 'icomoon';
+                            src: url('fonts/icomoon.eot?499enq');
+                            src: url('fonts/icomoon.eot?499enq#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?499enq') format('truetype'), url('fonts/icomoon.woff?499enq') format('woff'), url('fonts/icomoon.svg?499enq#icomoon') format('svg');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                        
+                        [class^="icon-"],
+                        [class*=" icon-"] {
+                            /* use !important to prevent issues with browser extensions that change fonts */
+                            font-family: 'icomoon'!important;
+                            speak: none;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-variant: normal;
+                            text-transform: none;
+                            line-height: 2.5;
+                            /* Better Font Rendering =========== */
+                            -webkit-font-smoothing: antialiased;
+                            -moz-osx-font-smoothing: grayscale;
+                        }
+                        
+                        .icon-trending-up:before {
+                            content: "\e900";
+                        }
+                        
+                        .icon-home3:before {
+                            content: "\e902";
+                        }
+                        
+                        .icon-cog:before {
+                            content: "\e994";
+                            /* margin-top: 1000px; */
+                        }
+                        
+                        .icon-heart:before {
+                            content: "\e9da";
+                        }
+                        
+                        .container-list {
+                            display: grid;
+                            grid-template: 100px1fr/ 200px1fr;
+                            grid-gap: 2px;
+                            height: 100vh;
+                            grid-template-areas: "header header" "left contenido";
+                        }
+                        
+                        .containerp {
+                            background-color: rgba(230, 76, 78, 0.5);
+                            margin-bottom: -162px;
+                            margin-left: 4px;
+                            width: 311px;
+                            height: 125px;
+                            cursor: pointer;
+                            font-family: 'PT Serif', sans-serif;
+                        }
+                        
+                        .item {
+                            background: white;
+                            padding: 10px;
+                            border: 1px solid red;
+                            /*margin-right: 10px;*/
+                            /*margin-bottom: 10px;*/
+                        }
+                        
+                        .container {
+                            /* cursor: pointer; */
+                            position: relative;
+                            display: block;
+                        }
+                        /* .container p{
+      cursor: pointer; */
+                    }
+                    .subtitle {
+                        position: relative;
+                        display: block;
+                        /* margin-left: 40px;
+      margin-top: -10px;
+      color: black;
+      display: grid;
+      grid-gap: 1px;  */
+                    }
+                    .title-1 {
+                        position: relative;
+                        left: 35px;
+                        bottom: -6px;
+                        font-weight: bolder;
+                        font-style: normal;
+                        font-family: 'PT Serif', sans-serif;
+                        font-size: 20px;
+                    }
+                    .title-2 {
+                        position: relative;
+                        left: 35px;
+                        bottom: -6px;
+                        font-weight: bolder;
+                        font-style: normal;
+                        font-family: 'PT Serif', sans-serif;
+                        color: white;
+                    }
+                    .container-overlay {
+                        /* backgound: rgba(0, 0, 0, .4); */
+                        
+                        position: absolute;
+                        left: 35px;
+                        /* right: 0; */
+                        
+                        bottom: 0;
+                        top: 0;
+                        display: none;
+                        align-items: center;
+                        justify-content: left;
+                        color: white;
+                        text-align: left;
+                        display: flex;
+                    }
+                    /* .container-overlay{
+        display: flex;
+
+      } */
+                    .titulo {
+                        font-weight: bold;
+                        margin-right: 100px;
+                        font-size: 22px;
+                        /* width: 268px;
+        height: 95px; */
+                        /* margin-top: 100px; */
+                        /* margin-left:4px; */
+                    }
+                    .titulo-frase {
+                        /* text-align: right; */
+                        /* width: 200px; */
+                        /* margin: 10px; */
+                        /* margin-right: 150px; */
+                        /* font-weight: lighter, 1px; */
+                        
+                        font-size: 19px;
+                        /* text-align: inherit ; */
+                        /* display: inline; */
+                        /* margin-right: 0; */
+                        /* margin-left: 4px; */
+                    }
+                    .header {
+                        grid-area: header;
+                    }
+                    .left {
+                        grid-area: left;
+                        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+                        
+                        background: #a90329;
+                        /* Old browsers */
+                        
+                        background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+                        /* FF3.6-15 */
+                        
+                        background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+                        /* Chrome10-25,Safari5.1-6 */
+                        
+                        background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%);
+                        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                        
+                        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=0);
+                        /* IE6-9 */
+                    }
+                    .contenido {
+                        /* grid-area: contenido; */
+                        
+                        display: grid;
+                        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                        grid-column-gap: 30px;
+                        grid-row-gap: 60px;
+                    }
+                    .imagen {
+                        width: 310px;
+                        height: 280px;
+                    }
+                    .container-icono {
+                        color: white;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        font-size: 30px;
+                    }
+                    .descriptions {
+                        font-size: 15px;
+                        margin-top: -18px;
+                    }
+                    .icon-cog {
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        margin-top: 800px;
+                    }
+                    .header-images {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 20px;
+                    }
+                    .input {
+                        font-size: 16px;
+                        color: darkgray;
+                        border-radius: 10px;
+                    }
+                    .pop {
+                        font-size: 27px;
+                        font-family: 'Monoton', cursive;
+                        color: #a90329;
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .head-image {
+                        width: 80px;
+                        height: 50px;
+                        margin-top: -10px;
+                    }
+                    .circulo {
+                        width: 70px;
+                        height: 70px;
+                        -moz-border-radius: 50%;
+                        -webkit-border-radius: 50%;
+                        border-radius: 50%;
+                        margin-top: -20px;
+                    }
+                    .cat {
+                        display: flex;
+                        justify-content: center;
+                    }
+                    </style>
+    </head>
+
+    <body>
+        <section class="container-list">
+            <div class="item header">
+                <div class="header-images">
+                    <div class="pop">
+                        <img class="head-image" requiredid="movie" name="Movie" src="images/popcorn.jpg" alt="Popcorn">
+                        <label for="movie">Movie</label>
+                    </div>
+                    <div class="">
+                        <input class="input" style="width: 450px; height: 30px" type="text" name="" value="Busca tu peli, actor, actriz o director preferido">
+                    </div>
+                    <div class="cat">
+                        <label style="font-family: 'PT Serif', sans-serif; font-size: 23px; margin-right: 10px;" for="cat">PussyCat</label>
+                        <img class="head-image circulo" requiredid="cat" name="PussyCat" src="images/cat.jpg" alt="Perfil">
+                    </div>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="container-icono">
+                    <span class="icon-home3">
+                                                                </span>
+                    <span class="descriptions">Home</span>
+                    <span class="icon-trending-up">
+                                                                        </span>
+                    <span class="descriptions">Trending</span>
+                    <span class="icon-heart">
+                                                                                </span>
+                    <span class="descriptions">Mas likes</span>
+                    <span class="icon-cog">
+                                                                                        </span>
+                    <span class="descriptions">Ajustes</span>
+                </div>
+            </div>
+            <div class="item contenido">
+
+                <div class="container">
+                    <span class="title-1">Ahora en el Cine</span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                                                                                                                    <p>
+                                                                                                                        <span class="titulo">The Secret Life of Pets<br/></span>
+                    <span class="titulo-frase">The quiet life of a terrier named Max is upunded when his owner takes in Duke, stray whom width Max stantly dislikes.</span>
+                    </p>
+                    </span>
+                </div>
+                <div class="container">
+                    <span class="title-2">Ahora en el Cine</span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                                                                                                                                        <p>
+                                                                                                                                            <span class="titulo">The Secret Life of Pets<br/></span>
+                    <span class="titulo-frase">The quiet life of a terrier named Max is upunded when his owner takes in Duke, stray whom width Max stantly
+                                                                                                                                                    dislikes.</span>
+                    </p>
+                    </span>
+                </div>
+                <div class="container">
+                    <span class="title-2">Ahora en el Cine</span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                                                                                                                                                            <p>
+                                                                                                                                                                <span class="titulo">The Secret Life of Pets<br/></span>
+                    <span class="titulo-frase">The quiet life of a terrier named Max is upunded when his owner takes in Duke, stray whom
+                                                                                                                                                                        width Max stantly dislikes.</span>
+                    </p>
+                    </span>
+                </div>
+                <div class="container">
+                    <span class="title-1">Aclamadas por la critica</span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                                                                                                                                                                                <p>
+                                                                                                                                                                                    <span class="titulo">The Secret Life of Pets<br/></span>
+                    <span class="titulo-frase">The quiet life of a terrier named Max is upunded when his owner takes
+                                                                                                                                                                                            in Duke, stray whom width Max stantly dislikes.</span>
+                    </p>
+                    </span>
+                </div>
+                <div class="container">
+                    <span class="title-2">Aclamadas por la critica</span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                        <p>
+                            <span class="titulo">The Secret Life of Pets<br/></span>
+                    <span class="titulo-frase">The quiet life of a terrier named Max is upunded when his owner takes in Duke, stray whom width Max stantly dislikes.</span>
+                    </p>
+                    </span>
+                </div>
+                <div class="container">
+                    <span class="title-2">Aclamadas por la critica</span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                                    <p>
+                                        <span class="titulo">The Secret Life of Pets<br/></span>
+                    <span class="titulo-frase">The quiet life of a terrier named Max is upunded when his owner takes in Duke, stray whom width Max stantly dislikes.
+                                                </span>
+                    </p>
+                    </span>
+                </div>
+                <div class="container">
+                    <span class="title-1">No te debes perder</span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                                <p>
+                                    <span class="titulo">The Secret Life of Pets
+                                        <br/></span>
+                    <span class="titulo-frase">The quiet life of a terrier named Max is upunded when his owner takes in Duke, stray whom width Max stantly dislikes.
+                                            </span>
+                    </p>
+                    </span>
+                </div>
+                <div class="container">
+                    <span class="title-2">Aclamadas por la critica</span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                                                    <p>
+                                                        <span class="titulo">The Secret Life of Pets
+                                                            <br/></span>
+                    <span class="titulo-frase">The quiet life of a terrier named Max is upunded when his owner takes in Duke, stray whom width Max stantly dislikes.
+                                                                </span>
+                    </p>
+                    </span>
+                </div>
+                <div class="container">
+                    <span class="title-2">Aclamadas por la critica
+                                                            </span>
+                    <figure class="container-image">
+                        <img class="imagen" src="images.jpeg" alt="">
+                    </figure>
+                    <span class="container-overlay">
+                                                                        <p>
+                                                                            <span class="titulo">The Secret Life of Pets
+                                                                                <br/></span>
+                    <span class="titulo-frase">Th quiet life of a terrier named Max is upunded when his owner takes in Duke, stray whom width Max stantly dislikes.
+                                                                                    </span>
+                    </p>
+                    </span>
+                </div>
+        </section>
+        </div>
+        </section>
+    </body>
+
+    </html>
